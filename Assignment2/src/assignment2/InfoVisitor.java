@@ -80,7 +80,7 @@ public class InfoVisitor implements Visitor{
 
    @Override
    public void atUsers(List<String> users) {
-      throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      totalUsers = users.size();
    }
    
    public double getPercentPositive() {

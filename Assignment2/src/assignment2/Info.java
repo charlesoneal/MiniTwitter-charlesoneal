@@ -60,6 +60,9 @@ public class Info extends Observable implements Analytics {
    @Override
    public void accept(Visitor visitor) {
       
+      visitor.atUsers(this.users);
+      visitor.atFeed(this.feed);
+      visitor.atGroups(this.groupList);
       
    }
    
