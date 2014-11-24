@@ -32,40 +32,44 @@ public class UserControlPanel extends javax.swing.JFrame  {
    private void initComponents() {
 
       jPanel1 = new javax.swing.JPanel();
-      jButton1 = new javax.swing.JButton();
+      followButton = new javax.swing.JButton();
       jScrollPane1 = new javax.swing.JScrollPane();
-      jList1 = new javax.swing.JList();
-      jButton2 = new javax.swing.JButton();
+      currentlyFollowingList = new javax.swing.JList();
+      tweetButton = new javax.swing.JButton();
       jScrollPane2 = new javax.swing.JScrollPane();
-      jList2 = new javax.swing.JList();
+      newsFeedList = new javax.swing.JList();
       jLabel1 = new javax.swing.JLabel();
       jLabel2 = new javax.swing.JLabel();
+      jScrollPane3 = new javax.swing.JScrollPane();
+      tweetMessageTextArea = new javax.swing.JTextArea();
+      jScrollPane4 = new javax.swing.JScrollPane();
+      followUserTextArea = new javax.swing.JTextArea();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
       setTitle("Mini Twitter - User Control Panel");
 
       jPanel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-      jButton1.setText("jButton1");
+      followButton.setText("Follow User");
 
       jScrollPane1.setName(""); // NOI18N
 
-      jList1.setModel(new javax.swing.AbstractListModel() {
+      currentlyFollowingList.setModel(new javax.swing.AbstractListModel() {
          String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
          public int getSize() { return strings.length; }
          public Object getElementAt(int i) { return strings[i]; }
       });
-      jScrollPane1.setViewportView(jList1);
+      jScrollPane1.setViewportView(currentlyFollowingList);
 
-      jButton2.setText("jButton2");
+      tweetButton.setText("Post Tweet");
 
-      jList2.setModel(new javax.swing.AbstractListModel() {
+      newsFeedList.setModel(new javax.swing.AbstractListModel() {
          String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
          public int getSize() { return strings.length; }
          public Object getElementAt(int i) { return strings[i]; }
       });
-      jList2.setName(""); // NOI18N
-      jScrollPane2.setViewportView(jList2);
+      newsFeedList.setName(""); // NOI18N
+      jScrollPane2.setViewportView(newsFeedList);
 
       jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
       jLabel1.setText("Currently Following");
@@ -73,16 +77,26 @@ public class UserControlPanel extends javax.swing.JFrame  {
       jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
       jLabel2.setText("News Feed");
 
+      tweetMessageTextArea.setColumns(20);
+      tweetMessageTextArea.setRows(5);
+      jScrollPane3.setViewportView(tweetMessageTextArea);
+
+      jScrollPane4.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+      jScrollPane4.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+      followUserTextArea.setColumns(20);
+      followUserTextArea.setRows(5);
+      jScrollPane4.setViewportView(followUserTextArea);
+
       javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
       jPanel1.setLayout(jPanel1Layout);
       jPanel1Layout.setHorizontalGroup(
          jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addComponent(jScrollPane1)
          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-            .addGap(0, 247, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-               .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(followButton, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))
          .addComponent(jScrollPane2)
          .addGroup(jPanel1Layout.createSequentialGroup()
             .addContainerGap()
@@ -90,18 +104,25 @@ public class UserControlPanel extends javax.swing.JFrame  {
                .addComponent(jLabel1)
                .addComponent(jLabel2))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addComponent(jScrollPane3)
+            .addGap(18, 18, 18)
+            .addComponent(tweetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
       );
       jPanel1Layout.setVerticalGroup(
          jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(jPanel1Layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+               .addComponent(followButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(9, 9, 9)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(58, 58, 58)
-            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+               .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+               .addComponent(tweetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addComponent(jLabel2)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -164,14 +185,18 @@ public class UserControlPanel extends javax.swing.JFrame  {
    }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
-   private javax.swing.JButton jButton1;
-   private javax.swing.JButton jButton2;
+   private javax.swing.JList currentlyFollowingList;
+   private javax.swing.JButton followButton;
+   private javax.swing.JTextArea followUserTextArea;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JLabel jLabel2;
-   private javax.swing.JList jList1;
-   private javax.swing.JList jList2;
    private javax.swing.JPanel jPanel1;
    private javax.swing.JScrollPane jScrollPane1;
    private javax.swing.JScrollPane jScrollPane2;
+   private javax.swing.JScrollPane jScrollPane3;
+   private javax.swing.JScrollPane jScrollPane4;
+   private javax.swing.JList newsFeedList;
+   private javax.swing.JButton tweetButton;
+   private javax.swing.JTextArea tweetMessageTextArea;
    // End of variables declaration//GEN-END:variables
 }

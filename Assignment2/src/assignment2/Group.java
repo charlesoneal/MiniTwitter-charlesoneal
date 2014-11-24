@@ -14,18 +14,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
-public class Group extends Observable {
+public class Group  {
    
    private String groupName;
-   private List<String> groupMembers = new ArrayList<String>();
+   private List<String> groupMembers;
+   private List<Group> innerGroups;
    
    public Group(String groupName) {
       this.groupName = groupName;
+      groupMembers = new ArrayList<>();
+      innerGroups = new ArrayList<>();
    }
    
    public void addGroupMember(String groupMember) {
       groupMembers.add(groupMember);
-      notifyObservers();
+      
    }
    
    public List<String> getGroup() {

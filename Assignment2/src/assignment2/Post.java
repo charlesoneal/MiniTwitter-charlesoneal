@@ -22,6 +22,10 @@ public class Post {
       return this;
    }
    
+   public String getUserName() {
+      return this.user;
+   }
+   
    
    
 }

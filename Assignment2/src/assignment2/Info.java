@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Charles O'Neal
+ * Assignment 2
+ * This class uses the SINGLETON PATTERN and contains all of the information
+ * for the feed, users, ang groups.  It is also the Observable Part of the 
+ * OBSERVER PATTERN.
  */
 package assignment2;
 
@@ -15,11 +17,19 @@ import java.util.List;
 import java.util.Observable;
 
 
-public class Info extends Observable {
+public class Info extends Observable  {
    
-   private List<Post> feed = new ArrayList<>();
-   private List<String> users = new ArrayList<>();
-   private List<Group> groupList = new ArrayList<>();
+   private List<Post> feed;
+   private List<String> users;
+   private List<Group> groupList;
+   
+   private static Info instance;
+   
+   private Info() {
+      feed = new ArrayList<>();
+      users = new ArrayList<>();
+      groupList = new ArrayList<>();
+   }
    
    
    public void addPost(Post post) {
@@ -30,6 +40,21 @@ public class Info extends Observable {
    public void addGroup(Group group) {
       groupList.add(group);
       notifyObservers();
+   }
+   
+   public List<Post> getUserPost(List<String> followed ) {
+      List<Post> followedFeed = new ArrayList<>();
+      
+      for(int i = 0; i < feed.size(); i++) {
+	 for(int j = 0; j < followed.size(); j++) {
+	    if(followed.get(j).equals(feed.get(i).getUserName())) {
+	       followedFeed.add(feed.get(i));
+	    }
+	 }
+      }
+      
+      return followedFeed;
+      
    }
    
    
