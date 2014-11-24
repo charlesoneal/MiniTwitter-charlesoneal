@@ -22,13 +22,19 @@ public class Info extends Observable implements Analytics {
    private List<Post> feed;
    private List<String> users;
    private List<Group> groupList;
-   
    private static Info instance;
    
    private Info() {
       feed = new ArrayList<>();
       users = new ArrayList<>();
       groupList = new ArrayList<>();
+   }
+   
+   public static Info getInstance() {
+      if (instance == null) {
+	 instance = new Info();
+      }
+      return instance;
    }
    
    

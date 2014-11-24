@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Charles O'Neal
+ * Assignment 2
+ * This is the user control panel for users of Mini Twitter
+ * It is what is seen by the users
+ * 
  */
 package assignment2;
 

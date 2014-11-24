@@ -6,6 +6,12 @@
  */
 package assignment2;
 
+import java.util.ArrayList;
+import java.util.List;
+import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author Charles
@@ -17,13 +23,16 @@ public class AdminControlPanel extends javax.swing.JFrame {
    /**
     * Creates new form AdminControlPanel
     */
+   List<User> userList;
    private AdminControlPanel() {
       initComponents();
+      userList = new ArrayList<>();
    }
    
    public static AdminControlPanel getInstance() {
       if(instance == null) {
 	 instance = new AdminControlPanel();
+	 
       }
       return instance;
    }
@@ -87,6 +96,11 @@ public class AdminControlPanel extends javax.swing.JFrame {
       openUserViewButton.setText("Open User View");
 
       addUserButton.setText("Add User");
+      addUserButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            addUserButtonActionPerformed(evt);
+         }
+      });
 
       addGroupButton.setText("Add Group");
 
@@ -178,6 +192,22 @@ public class AdminControlPanel extends javax.swing.JFrame {
 
       pack();
    }// </editor-fold>//GEN-END:initComponents
+
+   private void addUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserButtonActionPerformed
+      String str = addUserTextArea.getText();
+      if(!str.equals("")) {
+	 DefaultTreeModel model = (DefaultTreeModel)userGroupTree.getModel();
+	 DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+	 root.add(new DefaultMutableTreeNode(str));
+	 model.reload(root);
+	 addUserTextArea.setText("");
+	 userList.add(new User(str));
+	 
+      } else {
+	 showMessageDialog(getInstance(), "Please select a username");
+	 
+      }
+   }//GEN-LAST:event_addUserButtonActionPerformed
 
    /**
     * @param args the command line arguments
