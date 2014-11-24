@@ -39,6 +39,10 @@ public class Group  {
       return groupName;
    }
    
+   public int getInnerGroupSize() {
+     return innerGroups.size();
+   }
+   
    
    
 }

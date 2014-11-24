@@ -5,17 +5,10 @@
  */
 package assignment2;
 
-import java.util.List;
-
 /**
  *
  * @author Charles
  */
-public interface Visitor {
-   
-   public void atFeed(List<Post> feed);
-   public void atGroups(List<Group> groupList);
-   public void atUsers(List<String> users);
-   
-   
+public interface Analytics {
+   public void accept(Visitor visitor);
 }

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Observable;
 
 
-public class Info extends Observable  {
+public class Info extends Observable implements Analytics {
    
    private List<Post> feed;
    private List<String> users;
@@ -54,6 +54,12 @@ public class Info extends Observable  {
       }
       
       return followedFeed;
+      
+   }
+   
+   @Override
+   public void accept(Visitor visitor) {
+      
       
    }
    

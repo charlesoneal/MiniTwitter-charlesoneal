@@ -26,6 +26,10 @@ public class Post {
       return this.user;
    }
    
+   public String getTweet() {
+      return this.tweet;
+   }
+   
    
    
 }

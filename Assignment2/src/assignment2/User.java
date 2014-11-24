@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class User implements Observer, Visitor{
+public class User implements Observer{
    
    private String userName;
    private List<Post> myFeed;
