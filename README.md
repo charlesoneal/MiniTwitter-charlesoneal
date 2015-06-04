@@ -1,4 +1,4 @@
-cs356-a2-charlesoneal
+Mini Twitter-charlesoneal
 =====================
 
 CS356 Assignment 2 Mini Twitter
